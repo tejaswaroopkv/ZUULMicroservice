@@ -1,0 +1,41 @@
+
+server.port=8989
+
+spring.application.name= api-gateway
+
+eureka.client.serviceUrl.defaultZone= http://localhost:8761/eureka
+
+#Common
+zuul.routes.COMMON-SERVICE.path= /flight/common/**
+zuul.routes.COMMON-SERVICE.url= COMMON-SERVICE
+
+#Admin
+zuul.routes.ADMIN-SERVICE.path= /flight/admin/**
+zuul.routes.ADMIN-SERVICE.url= ADMIN-SERVICE
+
+##User
+zuul.routes.USER-SERVICE.path=/flight/user/**
+zuul.routes.USER-SERVICE.url= USER-SERVICE
+
+hystrix.command.default.execution.isolation.thread.timeoutInMilliseconds=30000
+ribbon.ConnectTimeout=10000
+ribbon.ReadTimeout: 10000
+
+
+
+#zuul.routes.DEMO-SERVICE.path= /demo/**
+#zuul.routes.DEMO-SERVICE.url= DEMO-SERVICE
+
+#
+##Common
+#zuul.routes.COMMON-SERVICE.path= /flight/common/**
+#zuul.routes.COMMON-SERVICE.url= COMMON-SERVICE
+
+
+
+# localhost:8989/cinemas/--> redirect req to CINEMA-SERVICE
+# localhost:8989/cinemas/v1/movies --> will give all movies
+#zuul.routes.CINEMA-SERVICE.path= /cinemas/**
+#zuul.routes.CINEMA-SERVICE.url= CINEMA-SERVICE
+
+ 
